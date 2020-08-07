@@ -1,5 +1,9 @@
 import seedRegions from './regionSeeder.js';
 
 export default async () => {
-  const regions = await seedRegions();
+  try {
+    const regions = await seedRegions();
+  } catch (e) {
+    console.log(e);
+  }
 }
