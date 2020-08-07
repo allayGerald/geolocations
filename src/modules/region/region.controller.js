@@ -10,8 +10,13 @@ export const getRegions = async (req, res) => {
       prevPage: 'prev',
       totalPages: 'pageCount'
     };
+    let query = {};
 
-    const regions = await Region.paginate({}, {
+    if (search !== '') {
+      query = {$text: {$search: search}};
+    }
+
+    const regions = await Region.paginate(query, {
       page,
       limit,
       customLabels,
