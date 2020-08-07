@@ -1,0 +1,11 @@
+{
+  "name": "geolocation",
+  "version": "1.0.0",
+  "description": "iPF Software's geolocation api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gerald Allay <geraldallay@gmail.com>",
+  "license": "ISC"
+}
