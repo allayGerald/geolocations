@@ -6,8 +6,9 @@ const DB = (NODE_ENV === 'test' ? constants.TEST_DB : constants.DB_DATABASE);
 
 export default  (app) => {
   const con = mongoose.connect(DB, {
-    useNewUrlParser: true,
     useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useCreateIndex: true,
     useFindAndModify: false
   });
 

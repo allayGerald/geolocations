@@ -4,14 +4,14 @@ import apiRoutes from './modules/index.js';
 import constants from './config/constants.js';
 import middlewaresConfig from './middlewares/common.js';
 import DB from './config/database.js';
-// import { seedData } from './config/seeder/data.seeder.js';
+import seedData from './dbSeeds/index.js';
 
 const app = express();
 (() => { DB(app); })();
 middlewaresConfig(app);
 
 apiRoutes(app);
-// seedData();
+const seeder = seedData();
 
 app.on('ready', function() {
 
