@@ -8,7 +8,7 @@
     "test": "cross-env NODE_ENV=test mocha",
     "dev": "nodemon src/index.js",
     "start": "node src/index.js",
-    "doc": "apidoc -i src/modules -o apiDoc/"
+    "doc": "apidoc -i src/modules -o docs/"
   },
   "author": "Gerald Allay <geraldallay@gmail.com>",
   "license": "ISC",
@@ -31,5 +31,9 @@
     "cross-env": "^7.0.2",
     "mocha": "^8.1.1",
     "nodemon": "^2.0.4"
+  },
+  "apidoc": {
+    "title": "Geographical locations dataset",
+    "url": "https://geolocations.herokuapp.com/api"
   }
 }

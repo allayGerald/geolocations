@@ -20,7 +20,8 @@ export const getRegions = async (req, res) => {
       page,
       limit,
       customLabels,
-      sort: {name: 1}
+      sort: {name: 1},
+      select: '-_id name'
     });
 
     res.status(200).json(regions);
