@@ -13,7 +13,7 @@ export const getRegions = async (req, res) => {
     let query = {};
 
     if (search !== '') {
-      query = {$text: {$search: search}};
+      query = {'name': {'$regex': search, '$options': 'i'}}
     }
 
     const regions = await Region.paginate(query, {

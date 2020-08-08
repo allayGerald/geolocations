@@ -13,7 +13,7 @@ const RegionSchema = new Schema({
     {timestamps: true}
 );
 
-RegionSchema.index({name: 'text'});
+// RegionSchema.index({name: 'text'});
 RegionSchema.plugin(mongoosePaginate);
 
 export default mongoose.model('Region', RegionSchema);
