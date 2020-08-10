@@ -13,25 +13,14 @@ const router = express.Router();
  * @apiExample {curl} Example usage:
  *     curl -i localhost:3000/api/regions?limit=2&&page=1&&search=
  *
- * @apiSuccessExample {json} Success-Response:
+ * @apiSuccessExample {json} Success-Response: [
  * {
- *   "regions": [
- *       {
- *           "name": "Arusha"
- *       },
- *       {
- *           "name": "Dar Es Salaam"
- *       }
- *   ],
- *   "total": 33,
- *   "limit": 2,
- *   "pageCount": 17,
- *   "page": 1,
- *   "pagingCounter": 1,
- *   "hasPrevPage": false,
- *   "hasNextPage": true,
- *   "prev": null,
- *   "next": 2
+ *   "name": "Arusha"
+ *  },
+ *  {
+ *    "name": "Dar Es Salaam"
+ *  }
+ * ]
  *}
  */
 router.get('/', regionController.getRegions);

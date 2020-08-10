@@ -3,26 +3,28 @@ import Region from './region.model.js';
 export const getRegions = async (req, res) => {
   try {
     const {page = 1, limit = process.env.PERPAGE, search = ''} = req.query;
-    const customLabels = {
+    /*const customLabels = {
       totalDocs: 'total',
       docs: 'regions',
       nextPage: 'next',
       prevPage: 'prev',
       totalPages: 'pageCount'
-    };
+    };*/
     let query = {};
 
     if (search !== '') {
       query = {'name': {'$regex': search, '$options': 'i'}}
     }
 
-    const regions = await Region.paginate(query, {
+    /*const regions = await Region.paginate(query, {
       page,
       limit,
       customLabels,
       sort: {name: 1},
       select: '-_id name'
-    });
+    });*/
+
+    const regions = await Region.find(query);
 
     res.status(200).json(regions);
 
