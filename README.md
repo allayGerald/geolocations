@@ -25,7 +25,7 @@ Use [this link](https://geolocations-tz.herokuapp.com/api) `https://geolocations
 
 ## Documentation
 
-Documentation on how to consume api can be found here (https://allaygerald.github.io/geolocations/)
+Documentation on how to consume api can be found here https://allaygerald.github.io/geolocations/
 
 
 ## Contribution
