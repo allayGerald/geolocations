@@ -25,4 +25,6 @@ const router = express.Router();
  */
 router.get('/', regionController.getRegions);
 
+router.get('/districts', regionController.getRegionsWithDistricts);
+
 export default router;

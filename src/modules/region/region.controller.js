@@ -24,7 +24,7 @@ export const getRegions = async (req, res) => {
       select: '-_id name'
     });*/
 
-    const regions = await Region.find(query);
+    const regions = await Region.find(query).select('name');
 
     res.status(200).json(regions);
 
@@ -34,3 +34,29 @@ export const getRegions = async (req, res) => {
     });
   }
 };
+
+export const getRegionsWithDistricts = async (req, res) => {
+  try {
+    const {search = ''} = req.query;
+
+    let query = {};
+
+    if (search !== '') {
+      query = {$or:
+        [
+        {'name': {'$regex': search, '$options': 'i'}},
+        {'districts': {'$regex': search, '$options': 'i'}}
+        ]
+      }
+    }
+
+    const regions = await Region.find(query);
+
+    res.status(200).json(regions);
+  } catch (e) {
+    return res.status(500).json({
+      status: false,
+      message: e.message
+    });
+  }
+}
