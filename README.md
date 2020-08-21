@@ -15,7 +15,9 @@ Use [this link](https://geolocations-tz.herokuapp.com/api) `https://geolocations
 
 - Node >= `14.7.0`
 - MongoDB
-- Clone this repository: git clone git@github.com:joshuamabina/finlink-api.git ~/Projects/finlink-api
+
+## Installation
+- Clone this repository: git clone git@github.com:allayGerald/geolocations.git
 
 ## Development
 
@@ -23,7 +25,7 @@ Use [this link](https://geolocations-tz.herokuapp.com/api) `https://geolocations
 
 ## Documentation
 
-Documentation on how to consume api can be found [here](https://allaygerald.github.io/geolocation_api_docs/)
+Documentation on how to consume api can be found here (https://allaygerald.github.io/geolocations/)
 
 
 ## Contribution
