@@ -5,15 +5,14 @@ import {isValidObjectId} from '../../middlewares/objectIdValidator.middleware.js
 const router = express.Router();
 
 /**
- * @api {get} /regions Fetch all regions
+ * @api {get} /regions?search= Fetch all regions
+ * @apiVersion 1.0.0
  * @apiGroup Regions
  * @apiName GetRegions
- * @apiParam (string) [search] Search term if any
- * @apiExample {curl} Example usage:
- *     curl -i localhost:3000/api/regions?search=
+ * @apiParam (string) [search] Search term
  *
  * @apiSuccessExample {json} Success-Response:
- * {
+ * [
  * {
  *   "name": "Arusha",
  *   "_id": "5f3f8cf71358fd4604d4e49b"
@@ -22,12 +21,13 @@ const router = express.Router();
  *    "name": "Dar Es Salaam",
  *   "_id": "5f3f8cf71358fd4604d4e49a"
  *  }
- *}
+ *]
  */
 router.get('/', regionController.getRegions);
 
 /**
- * @api {get} /regions/districts Fetch regions with districts
+ * @api {get} /regions/districts?search= Fetch regions with districts
+ * @apiVersion 1.0.0
  * @apiGroup Regions
  * @apiName GetRegionsDistricts
  * @apiParam (string) [search] Search term if any
@@ -58,16 +58,15 @@ router.get('/', regionController.getRegions);
  *      ]
  *  }
  * ]
- *}
  */
 router.get('/districts', regionController.getRegionsWithDistricts);
 
 /**
- * @api {get} /regions/districts Fetch region districts
+ * @api {get} /regions/:id/districts Fetch region districts
+ * @apiVersion 1.0.0
  * @apiGroup Regions
  * @apiName GetRegionDistricts
  * @apiParam (string) id The region ID
- * @apiParam (string) [search] Search term if any
  *
  * @apiSuccessExample {json} Success-Response:
  *  ["Babati",

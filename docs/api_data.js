@@ -1,8 +1,9 @@
 define({ "api": [
   {
     "type": "get",
-    "url": "/regions/districts",
+    "url": "/regions/:id/districts",
     "title": "Fetch region districts",
+    "version": "1.0.0",
     "group": "Regions",
     "name": "GetRegionDistricts",
     "parameter": {
@@ -13,12 +14,6 @@ define({ "api": [
             "optional": false,
             "field": "id",
             "description": "<p>The region ID</p>"
-          },
-          {
-            "group": "string",
-            "optional": true,
-            "field": "search",
-            "description": "<p>Search term if any</p>"
           }
         ]
       }
@@ -32,14 +27,14 @@ define({ "api": [
         }
       ]
     },
-    "version": "0.0.0",
     "filename": "src/modules/region/region.routes.js",
     "groupTitle": "Regions"
   },
   {
     "type": "get",
-    "url": "/regions",
+    "url": "/regions?search=",
     "title": "Fetch all regions",
+    "version": "1.0.0",
     "group": "Regions",
     "name": "GetRegions",
     "parameter": {
@@ -49,35 +44,28 @@ define({ "api": [
             "group": "string",
             "optional": true,
             "field": "search",
-            "description": "<p>Search term if any</p>"
+            "description": "<p>Search term</p>"
           }
         ]
       }
     },
-    "examples": [
-      {
-        "title": "Example usage:",
-        "content": "curl -i localhost:3000/api/regions?search=",
-        "type": "curl"
-      }
-    ],
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n{\n  \"name\": \"Arusha\",\n  \"_id\": \"5f3f8cf71358fd4604d4e49b\"\n },\n {\n   \"name\": \"Dar Es Salaam\",\n  \"_id\": \"5f3f8cf71358fd4604d4e49a\"\n }\n}",
+          "content": "[\n{\n  \"name\": \"Arusha\",\n  \"_id\": \"5f3f8cf71358fd4604d4e49b\"\n },\n {\n   \"name\": \"Dar Es Salaam\",\n  \"_id\": \"5f3f8cf71358fd4604d4e49a\"\n }\n]",
           "type": "json"
         }
       ]
     },
-    "version": "0.0.0",
     "filename": "src/modules/region/region.routes.js",
     "groupTitle": "Regions"
   },
   {
     "type": "get",
-    "url": "/regions/districts",
+    "url": "/regions/districts?search=",
     "title": "Fetch regions with districts",
+    "version": "1.0.0",
     "group": "Regions",
     "name": "GetRegionsDistricts",
     "parameter": {
@@ -96,12 +84,11 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[\n{\n  \"name\": \"Arusha\",\n  \"_id\": \"5f3f8cf71358fd4604d4e49b\",\n     \"districts\": [\n         \"Arusha\",\n         \"Arumeru\",\n         \"Monduli\",\n         \"Karatu\",\n         \"Longido\",\n         \"Ngorongoro\"\n     ]\n },\n {\n   \"name\": \"Dar Es Salaam\",\n  \"_id\": \"5f3f8cf71358fd4604d4e49a\",\n     \"districts\": [\n         \"Ilala\",\n         \"Kinondoni\",\n         \"Temeke\",\n         \"Ubungo\",\n         \"Kigamboni\"\n     ]\n }\n]\n}",
+          "content": "[\n{\n  \"name\": \"Arusha\",\n  \"_id\": \"5f3f8cf71358fd4604d4e49b\",\n     \"districts\": [\n         \"Arusha\",\n         \"Arumeru\",\n         \"Monduli\",\n         \"Karatu\",\n         \"Longido\",\n         \"Ngorongoro\"\n     ]\n },\n {\n   \"name\": \"Dar Es Salaam\",\n  \"_id\": \"5f3f8cf71358fd4604d4e49a\",\n     \"districts\": [\n         \"Ilala\",\n         \"Kinondoni\",\n         \"Temeke\",\n         \"Ubungo\",\n         \"Kigamboni\"\n     ]\n }\n]",
           "type": "json"
         }
       ]
     },
-    "version": "0.0.0",
     "filename": "src/modules/region/region.routes.js",
     "groupTitle": "Regions"
   }
