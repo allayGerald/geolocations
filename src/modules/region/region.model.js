@@ -8,12 +8,11 @@ const RegionSchema = new Schema({
         type: String,
         required: true,
         trim: true
+      },
+      districts: {
+        type: Array
       }
-    },
-    {timestamps: true}
+    }
 );
-
-// RegionSchema.index({name: 'text'});
-RegionSchema.plugin(mongoosePaginate);
 
 export default mongoose.model('Region', RegionSchema);
