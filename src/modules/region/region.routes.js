@@ -1,5 +1,6 @@
 import express from 'express';
 import * as regionController from './region.controller.js';
+import {isValidObjectId} from '../../middlewares/objectIdValidator.middleware.js';
 
 const router = express.Router();
 
@@ -26,5 +27,7 @@ const router = express.Router();
 router.get('/', regionController.getRegions);
 
 router.get('/districts', regionController.getRegionsWithDistricts);
+
+router.get('/:id/districts', [isValidObjectId], regionController.getRegionsDistricts);
 
 export default router;

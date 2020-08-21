@@ -13,7 +13,7 @@ export const getRegions = async (req, res) => {
     let query = {};
 
     if (search !== '') {
-      query = {'name': {'$regex': search, '$options': 'i'}}
+      query = {'name': {'$regex': search, '$options': 'i'}};
     }
 
     /*const regions = await Region.paginate(query, {
@@ -42,12 +42,13 @@ export const getRegionsWithDistricts = async (req, res) => {
     let query = {};
 
     if (search !== '') {
-      query = {$or:
-        [
-        {'name': {'$regex': search, '$options': 'i'}},
-        {'districts': {'$regex': search, '$options': 'i'}}
-        ]
-      }
+      query = {
+        $or:
+            [
+              {'name': {'$regex': search, '$options': 'i'}},
+              {'districts': {'$regex': search, '$options': 'i'}}
+            ]
+      };
     }
 
     const regions = await Region.find(query);
@@ -59,4 +60,19 @@ export const getRegionsWithDistricts = async (req, res) => {
       message: e.message
     });
   }
-}
+};
+
+export const getRegionsDistricts = async (req, res) => {
+  try {
+    const regionId = req.params.id;
+
+    const districts = await Region.findById(regionId).select('-_id districts');
+
+    return res.status(200).json(districts.districts);
+  } catch (e) {
+    return res.status(500).json({
+      status: false,
+      message: e.message
+    });
+  }
+};
