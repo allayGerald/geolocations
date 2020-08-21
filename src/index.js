@@ -11,9 +11,27 @@ const app = express();
 middlewaresConfig(app);
 
 apiRoutes(app);
-const seeder = seedData();
 
 app.on('ready', function() {
+  const port = process.env.NODE_ENV === 'test'? 4000: constants.PORT;
+
+  app.listen(port, err => {
+    if (err) {
+      throw err;
+    } else {
+      seedData().then(con => {
+        console.log(
+            `Server listening on port: ${port}
+      Running on: ${constants.NODE_ENV} Environment`
+        );
+        app.emit('DbConnection');
+      });
+
+    }
+  });
+});
+
+/*app.on('ready', function() {
 
   app.listen(constants.PORT, err => {
     if (err) {
@@ -26,6 +44,6 @@ app.on('ready', function() {
     }
   });
 
-});
+});*/
 
 export default app;

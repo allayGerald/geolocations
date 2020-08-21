@@ -1,5 +1,4 @@
 import regionRoutes from './region/region.routes.js';
-import Region from '../modules/region/region.model.js';
 
 export default app => {
 

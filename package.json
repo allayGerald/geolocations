@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "cross-env NODE_ENV=test mocha",
+    "test": "cross-env NODE_ENV=test mocha -recursive --exit",
     "dev": "nodemon src/index.js",
     "start": "node src/index.js",
     "doc": "apidoc -i src/modules -o docs/"

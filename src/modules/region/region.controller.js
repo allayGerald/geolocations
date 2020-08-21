@@ -62,7 +62,7 @@ export const getRegionsWithDistricts = async (req, res) => {
   }
 };
 
-export const getRegionsDistricts = async (req, res) => {
+export const getRegionDistricts = async (req, res) => {
   try {
     const regionId = req.params.id;
 

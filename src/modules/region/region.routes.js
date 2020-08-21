@@ -77,6 +77,6 @@ router.get('/districts', regionController.getRegionsWithDistricts);
  *  "Simanjiro"
  *  ]
  */
-router.get('/:id/districts', [isValidObjectId], regionController.getRegionsDistricts);
+router.get('/:id/districts', [isValidObjectId], regionController.getRegionDistricts);
 
 export default router;
