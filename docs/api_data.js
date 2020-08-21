@@ -1,6 +1,43 @@
 define({ "api": [
   {
     "type": "get",
+    "url": "/regions/districts",
+    "title": "Fetch region districts",
+    "group": "Regions",
+    "name": "GetRegionDistricts",
+    "parameter": {
+      "fields": {
+        "string": [
+          {
+            "group": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>The region ID</p>"
+          },
+          {
+            "group": "string",
+            "optional": true,
+            "field": "search",
+            "description": "<p>Search term if any</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[\"Babati\",\n\"Mbulu\",\n\"Hanang\",\n\"Kiteto\",\n\"Simanjiro\"\n]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/modules/region/region.routes.js",
+    "groupTitle": "Regions"
+  },
+  {
+    "type": "get",
     "url": "/regions",
     "title": "Fetch all regions",
     "group": "Regions",
@@ -8,18 +45,6 @@ define({ "api": [
     "parameter": {
       "fields": {
         "string": [
-          {
-            "group": "string",
-            "optional": true,
-            "field": "limit",
-            "description": "<p>Limit of documents returned default = 50</p>"
-          },
-          {
-            "group": "string",
-            "optional": true,
-            "field": "page",
-            "description": "<p>Current page default = 1</p>"
-          },
           {
             "group": "string",
             "optional": true,
@@ -32,7 +57,7 @@ define({ "api": [
     "examples": [
       {
         "title": "Example usage:",
-        "content": "curl -i localhost:3000/api/regions?limit=2&&page=1&&search=",
+        "content": "curl -i localhost:3000/api/regions?search=",
         "type": "curl"
       }
     ],
@@ -40,7 +65,38 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n  \"regions\": [\n      {\n          \"name\": \"Arusha\"\n      },\n      {\n          \"name\": \"Dar Es Salaam\"\n      }\n  ],\n  \"total\": 33,\n  \"limit\": 2,\n  \"pageCount\": 17,\n  \"page\": 1,\n  \"pagingCounter\": 1,\n  \"hasPrevPage\": false,\n  \"hasNextPage\": true,\n  \"prev\": null,\n  \"next\": 2\n}",
+          "content": "{\n{\n  \"name\": \"Arusha\",\n  \"_id\": \"5f3f8cf71358fd4604d4e49b\"\n },\n {\n   \"name\": \"Dar Es Salaam\",\n  \"_id\": \"5f3f8cf71358fd4604d4e49a\"\n }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/modules/region/region.routes.js",
+    "groupTitle": "Regions"
+  },
+  {
+    "type": "get",
+    "url": "/regions/districts",
+    "title": "Fetch regions with districts",
+    "group": "Regions",
+    "name": "GetRegionsDistricts",
+    "parameter": {
+      "fields": {
+        "string": [
+          {
+            "group": "string",
+            "optional": true,
+            "field": "search",
+            "description": "<p>Search term if any</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[\n{\n  \"name\": \"Arusha\",\n  \"_id\": \"5f3f8cf71358fd4604d4e49b\",\n     \"districts\": [\n         \"Arusha\",\n         \"Arumeru\",\n         \"Monduli\",\n         \"Karatu\",\n         \"Longido\",\n         \"Ngorongoro\"\n     ]\n },\n {\n   \"name\": \"Dar Es Salaam\",\n  \"_id\": \"5f3f8cf71358fd4604d4e49a\",\n     \"districts\": [\n         \"Ilala\",\n         \"Kinondoni\",\n         \"Temeke\",\n         \"Ubungo\",\n         \"Kigamboni\"\n     ]\n }\n]\n}",
           "type": "json"
         }
       ]

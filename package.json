@@ -37,6 +37,9 @@
     "npm": ">=6.14.7"
   },
   "apidoc": {
+    "name": "Geolocation",
+    "version": "1.0.0",
+    "description": "iPF Software's geolocation api",
     "title": "Geographical locations dataset",
     "url": "https://geolocations.herokuapp.com/api"
   }
